@@ -1,0 +1,118 @@
+/* ---------- *\
+    checkbox
+\* ---------- */
+.comp_checkbox {position: relative;padding-left: 25px;}
+.comp_checkbox i {position: absolute;top: 0;left: 0;width: 24px;height: 24px;background: url(//quimg.com/img/common/checkbox-btn.png) no-repeat 0 -6px;}  
+.comp_active_checkbox i {height: 30px;width: 30px;top: -6px;left: 0;background: url(//quimg.com/img/common/checkbox-btn.png) no-repeat -37px 0;}
+.comp_checkbox i:hover {cursor: pointer;}
+
+/* ------------ *\
+    hover tips
+\* ------------ */
+.wq_hover_tips_down {display: none;position: absolute;padding-top:0px;border:1px #35b9b9 solid;font-size: 14px;background-color:white;z-index: 999;}
+.wq_hover_tips_down i {position: absolute;top: -12px;width: 28px;height: 13px;background: url(//quimg.com/img/common/room_table_sharp.png) no-repeat;}
+.wq_tips_content_title{background-color: #d4f5f5;font-size: 18px;font-family: "微软雅黑";font-weight: bold;padding-left: 26px;color: #06a6a6;line-height: 40px;}
+.wq_tips_content {color: #000;line-height: 20px;font-size:13px;font-family:"微软雅黑";padding:26px;}
+
+/* -------------- *\
+    index slider
+\* -------------- */
+.wq_banner_wrapper {overflow: hidden;position: relative;width: 100%;height: 400px;}
+.wq_slider_list {position: absolute;height: 100%;top: 0;left: 0;}
+.wq_slider_item {float: left;height: 100%;}
+.wq_slider_item a {display: block;height: 100%;}
+.wq_btn_list {position: absolute;width: auto;right: 20px;bottom: 5px;}
+.wq_btn_item {float: left;margin-right: 10px;background-image: url(//quimg.com/img/common/woqu-all.png);background-position: 0 -102px;}
+.wq_btn_item:hover {cursor: pointer;background-position: 0 -124px;}
+.wq_btn_active {background-position: 0 -124px;}
+.wq_pn_btn {display: block;position: absolute;height: 35px;width: 25px;margin-top: -12px;top: 50%;background-image: url(//quimg.com/img/common/prev-next-btn.png);}
+.wq_prev_btn {background-position: -12px -88px;}
+.wq_next_btn {background-position: -346px -87px;}
+
+/* --------------------- *\
+    rentcar city select
+\* --------------------- */
+.city_select_wrapper {position: absolute;left: 0;top: 0;width: 456px;height: 624px;background-color: #fff;border: 1px solid #cfdfdf;z-index: 1000;}
+.city_select_close_btn {position: absolute;right: 6px;top: 6px;width: 15px;height: 15px;cursor: pointer;background: url(http://quimg.com/img/common/woqu-rentcar-all.png) no-repeat -185px -416px;}
+.select_head {padding: 0 12px 25px 12px;}
+.select_title {font-size: 16px;line-height: 16px;padding: 16px 0;color: #333;}
+.search_wrapper {position: relative;width: 408px;height: 36px;border: 1px solid #b7c5c5;overflow: hidden;}
+input.search_input {border: none;height: 30px;width: 365px;font-size: 13px;color: #848484;}
+.search_btn {position: absolute;right: 0;top: 0;display: block;width: 36px;height: 36px;background: url(http://quimg.com/img/common/woqu-rentcar-all.png) no-repeat -229px -406px;}
+.select_body {position: relative;}
+.letter_list {position: absolute;left: 12px;top: 0;width: 28px;height: 494px;border: 1px solid #cfdfdf;text-align: center;}
+.letter_list li {text-align: center;display: block;font-size: 12px;line-height: 18px;color: #848484;}
+.letter_tag:hover {color: #f07c00;cursor: pointer;font-weight: bold;font-size: 14px;cursor: pointer;}
+li.letter_title {font-size: 13px;color: #f07c00;font-weight: bold;padding-bottom: 3px;}
+.city_list_wrapper {position: absolute;left: 60px;top: 0;width: 394px;height: 495px;overflow-y: scroll;}
+.city_list_title {font-size: 13px;color: #f07c00;font-weight: bold;background-color: #f7f7f7;height: 28px;width: 362px;line-height: 28px;text-indent: 10px;margin-top: 0;}
+.hot_city_table {font-size: 13px;width: 362px;color: #848484;table-layout: fixed;}
+.hot_city_table p {float: left;width: 90px;padding: 7px 0;}
+.hot_city_table p:hover {color: #f07c00;cursor: pointer;}
+.list_box {padding-top: 10px;}
+.vertical_city_list {width: 362px;}
+.vertical_city_list > li {font-size: 13px;color: #848484;line-height: 28px;text-indent: 10px;}
+.city_name {float: left;width: 100%;}
+.city_name:hover {cursor: pointer;color: #fff;background: url(http://quimg.com/img/common/woqu-rentcar-all.png) no-repeat -380px -534px #03a7a7;}
+.city_name.active {color: #fff;background: url(http://quimg.com/img/common/woqu-rentcar-all.png) no-repeat -380px -534px #03a7a7;}
+.city_en_name {float: left;}
+.city_cn_name {float: right;margin-right: 30px;}
+.vertical_shop_list {float: left;width: 100%;line-height: 44px;background-color: #d2f7f7;display: none;}
+.vertical_shop_list p {text-indent: 20px;}
+.vertical_shop_list p:hover {cursor: pointer;}
+.city_select_mask {position: absolute;top: 0;left: 0;width: 456px;height: 624px;background: url(//quimg.com/img/common/loading.gif) no-repeat #fff 220px 300px;z-index: 1000;opacity: 0.7;filter: alpha(opacity=70);}
+
+/* ------------- *\
+     alert msg
+\* ------------- */
+.alert_msg{position:absolute;z-index:10;display:none;padding:5px;color:#e77741;font-size:14px;}
+.alert_msg_error{padding-left:26px;color:#e77741;background:url('//quimg.com/img/common/login-error.png') no-repeat 0 50%;}
+.alert_msg_suc{padding-left:26px;color:#00A5A5 !important;background:url('//quimg.com/img/common/order-success.png') no-repeat 0 50%;}
+.alert_msg_tips{color:#00A5A5 !important;}
+
+/* ----------------------------- *\
+    confirm dialog(use in hotel)
+\* ----------------------------- */
+.hotel_dialog_mask_wrapper {position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 10002;}
+.hotel_dialog_mask {position: fixed;width: 100%;height: 100%;background-color: #000;opacity: 0.7;filter: alpha(opacity=70);}
+.hotel_dialog_wrapper {position: fixed;border: 1px solid #f08300;background-color: #fff;width: 370px;top: 50%;left: 50%;}
+.hd_title {font-size: 14px;width: 100%;height: 26px;line-height: 26px;background-color: #f08300;text-indent: 12px;color: #fff;}
+.hd_close {position: absolute;width: 12px;height: 12px;right: 5px;top: 5px;background: url(//quimg.com/img/common/woqu-hotel-all.png) no-repeat -319px -412px;}
+.hd_main {position: relative;padding: 20px;}
+.hd_content {min-height: 90px;padding-left: 85px;font-size: 15px;color: #333;}
+.hd_main i {position: absolute;width: 60px;height: 91px;background-image: url(//quimg.com/img/common/woqu-hotel-all.png);background-repeat: no-repeat;top: 20px;left: 20px;}
+i.free_icon {background-position: -447px -498px;}
+i.pay_icon {background-position: -298px -504px;width: 79px;height: 70px;}
+.hd_btn_wrapper {text-align: center;}
+.hd_btn_wrapper a {display: inline-block;width: 58px;height: 26px;line-height: 26px;background-color: #f08300;margin-left: 15px;}
+
+/* ---------------------- *\
+    activity info dialog
+\* ---------------------- */
+.activity_mask_wrapper {position: fixed;width: 100%;height: 100%;top: 0;left: 0;z-index: 10000;}
+.activity_mask {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-color: #000;opacity: 0.4;filter: alpha(opacity=40);}
+.activity_dialog {position: absolute;top: 50%;left: 50%;border: 1px solid #cfdfdf;background-color: #fff;}
+.acd_title {position: relative;font-size: 16px;color: #06a6a6;height: 39px;line-height: 39px;border-bottom: 1px solid #cfdfdf;background-color: #ecf8f4;text-indent: 15px;}
+.acd_title i {position: absolute;width: 4px;height: 18px;background-color: #06a6a6;top: 11px;left: -1px;}
+.activity_dialog_close_icon {position: absolute;background: url(//quimg.com/img/common/woqu-all.png) 0 -931px;width: 16px;height: 16px;right: 10px;top: 10px;}
+.acd_content {padding: 20px;font-size: 13px;color: #333;line-height: 22px;}
+.acd_content span {font-weight: bold;}
+.activity_dialog_close_btn {position: absolute;bottom: 20px;left: 50%;margin-left: -60px;width: 120px;height: 34px;background: url(//quimg.com/img/common/woqu-btn-list.png) -352px -206px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>酒店信息查询</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="css/all.css" rel="stylesheet">
+    <link href="css/wq_common.css" rel="stylesheet">
+    <link href="css/wq.component.css" rel="stylesheet">
+    <link href="css/overseaHotelInfo.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+        <h2>海外酒店信息管理</h3>
+            <form class="form-horizontal overseaHotelInfoManage" role="form" id="overseaHotelInfoManage">
+              <div class="form-group">
+                <label for="inputHotelName" class="col-sm-2 control-label">酒店英文名(模糊)：</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="inputHotelName">
+                </div>
+                <label for="inputHotelNum" class="col-sm-2 control-label">Email酒店编号：</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="inputHotelNum">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputQueryCity" class="col-sm-2 control-label">城市：</label>
+                <div class="col-sm-4">
+                  <div id="inputQueryCity" class="form-control wq_clearfix">
+                        <span id="pickUpLocationStoreQ" class="city_en">选择城市</span>
+                        <span id="pickUpLocationCityQ" class="city_cn"></span>
+                        <span class="city_triangle_divide"></span>
+                      </div>
+                </div>
+                <label for="selectCountry" class="col-sm-2 control-label">国家：</label>
+                <div class="col-sm-4">
+                  <select name="selectCountry" id="selectCountry" class="form-control" >
+                      <option value="">美国</option>
+                      <option value="">美国</option>
+                      <option value="">美国</option>
+                      <option value="">美国</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="checkboxStartLevel" class="col-sm-2 control-label">星级：</label>
+                <div class="col-sm-10 textVerticalCentered" id="checkboxStartLevel">
+                  <input type="checkbox" id="inputStartLevel5"> 5星
+                  <input type="checkbox" id="inputStartLevel4"> 4星
+                  <input type="checkbox" id="inputStartLevel3"> 3星
+                  <input type="checkbox" id="inputStartLevel2"> 3星或以下
+                </div>                
+              </div>
+
+              <div class="form-group">
+                  <label for="themeTags" class="col-sm-2 control-label">主题标签：</label>
+                  <div class="col-sm-1">
+                    <button class="btn btn-primary" id="selectThemeTagBtn">选择</button>
+                  </div>
+                  <div id="themeTags">
+                    <div class ="col-sm-2 theme-tags-option" id="themeTag1">
+                        <button type="button" class="close" data-dismiss="alert">
+                          <span aria-hidden="true">&times;</span>
+                          <span class="sr-only">Close</span>
+                        </button>
+                        家庭式度假公寓
+                    </div>
+                    <div class="col-sm-2 theme-tags-option" id="themeTag2">
+                        <button type="button" class="close" data-dismiss="alert">
+                          <span aria-hidden="true">&times;</span>
+                          <span class="sr-only">Close</span>
+                        </button>
+                        公寓式
+                    </div>
+                    <div class="col-sm-2 theme-tags-option" id="themeTag3">
+                        <button type="button" class="close" data-dismiss="alert">
+                          <span aria-hidden="true">&times;</span>
+                          <span class="sr-only">Close</span>
+                        </button>
+                        汽车旅馆
+                    </div>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label for="checkboxSupplier" class="col-sm-2 control-label">供应商：</label>
+                <div class="col-sm-4 textVerticalCentered" id="checkboxSupplier">
+                  <input type="checkbox" id="checkboxSupplierG"> GTA
+                  <input type="checkbox" id="checkboxSupplierH"> HotelBeds
+                  <input type="checkbox" id="checkboxSupplierT"> Tourico
+                </div> 
+                <label for="selectHotel" class="col-sm-2 control-label">酒店状态：</label>
+                <div class="col-sm-4">
+                  <select name="selectHotel" id="selectHotel" class="form-control" >
+                      <option value="">不限</option>
+                      <option value="">上架</option>
+                      <option value="">下架</option>
+                  </select>
+                </div>               
+              </div>
+
+              <div class="form-group form-inline">
+                <label for="lowestPriceRange" class="col-sm-2 control-label">最低价(USD)：</label>
+                <div class="col-sm-2 lowestPriceRange">
+                  <input type="text" id="lowestPriceFrom" class="form-control">
+                </div>   
+                <div class="col-sm-1 text-vertical-centered">
+                  to
+                </div>          
+                <div class="col-sm-2 lowestPriceRange">
+                  <input type="text" id="lowestPriceTo" class="form-control">
+                </div>                
+              </div>
+
+              <div class="form-group">
+                  <div class="btn-group col-sm-offset-5 col-sm-1">
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" id="resetOverseaHotelInfoForm">  重置
+                    </button>
+                  </div>
+                  <div class="btn-group  col-sm-1">
+                    <button type="submit" class="btn btn-success"id="submitOverseaHotelInfoForm" onsubmit = "submitForHotelInfo()">  查询
+                    </button>
+                  </div>
+              </div>              
+            </form>
+
+            <div class="table-responsive" id="queryHotelInfoResult">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>序</th>
+                    <th>酒店编号</th>
+                    <th>国家/城市</th>
+                    <th>酒店英文名</th>
+                    <th>星级</th>
+                    <th>供应商</th>
+                    <th>推荐</th>
+                    <th>酒店状态</th>
+                    <th>最低价</th>
+                    <th>最低价</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="">1</a></td>
+                    <td>操作</td>
+                    <td>美国/拉斯维加斯</td>
+                    <td>HOLIDAY INN EXPRESS HOTEL & SUITES LAS VEGAS I-215 S. BELTWAY</td>
+                    <td>3星</td>
+                    <td>GTA/HotelBeds/Tourico</td>
+                    <td>GTA/HotelBeds/Tourico</td>
+                    <td>上架</td>
+                    <td>$133.68</td>
+                    <td>system
+2014-07-07 15:22:00</td>
+                    <td><a href="edit-hotel-info.html">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="">2</a></td>
+                    <td>操作</td>
+                    <td>美国/拉斯维加斯</td>
+                    <td>HOLIDAY INN EXPRESS HOTEL & SUITES LAS VEGAS I-215 S. BELTWAY</td>
+                    <td>3星</td>
+                    <td>GTA/HotelBeds/Tourico</td>
+                    <td>GTA/HotelBeds/Tourico</td>
+                    <td>上架</td>
+                    <td>$133.68</td>
+                    <td>system
+2014-07-07 15:22:00</td>
+                    <td><a href="edit-hotel-info.html">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="">3</a></td>
+                    <td>操作</td>
+                    <td>美国/拉斯维加斯</td>
+                    <td>HOLIDAY INN EXPRESS HOTEL & SUITES LAS VEGAS I-215 S. BELTWAY</td>
+                    <td>3星</td>
+                    <td>GTA/HotelBeds/Tourico</td>
+                    <td>GTA/HotelBeds/Tourico</td>
+                    <td>上架</td>
+                    <td>$133.68</td>
+                    <td>system
+2014-07-07 15:22:00</td>
+                    <td><a href="edit-hotel-info.html">编辑</a></td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul class="pagination pull-right">
+              <li><a href="#">&laquo;</a></li>
+              <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">2 </a></li>
+              <li><a href="#">3 </a></li>
+              <li><a href="#">4 </a></li>
+              <li><a href="#">5 </a></li>
+              <li><a href="#">&raquo;</a></li>              
+            </ul>
+            </div>
+            
+
+
+    </div>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/hotel-management.js"></script>   
+    <script src="js/citySelect.js"></script> 
+    <script src="js/citySelectData.js"></script>
+  </body>
+</html>

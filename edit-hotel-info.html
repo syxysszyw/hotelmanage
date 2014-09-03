@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>编辑酒店信息</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">    
+    <link href="css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
+    <link href="css/all.css" rel="stylesheet">
+    <link href="css/wq_common.css" rel="stylesheet">
+    <link href="css/wq.component.css" rel="stylesheet">
+    <link href="css/overseaHotelInfo.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+        <h2>酒店：<span>HOLIDAY INN EXPRESS HOTEL & SUITES LAS VEGAS I-215 S. BELTWAY</span></h2>
+        <ul class="nav nav-tabs" role="tablist" id="hotelInfoNavTabs">
+          <li class="active"><a href="#productInfo" data-toggle="tab" role="tab">产品信息</a></li>
+          <li><a href="#infoPacking" data-toggle="tab" role="tab">信息包装</a></li>
+          <li><a href="#procuctImage" data-toggle="tab" role="tab">产品图片</a></li>
+          <li><a href="#statusConfig" data-toggle="tab" role="tab">状态设置</a></li>
+          <li><a href="#evaluation" data-toggle="tab" role="tab">评价管理</a></li>
+        </ul>
+        
+        <!-- -->
+        <div id="hotelInfoTabContent" class="tab-content" >
+            <div class="tab-pane active" id="productInfo">        
+              <form class="form-horizontal oversea-hotel-info-manage" role="form" id="editOverseaHotelInfoManage" action="">
+
+                <!-- /.Basic Info begins -->
+                <div class="basicInfo separator">
+                  <h3>基本信息</h3>
+                  <div class="form-group">
+                    <label for="inputHotelNum" class="col-sm-2 control-label">酒店编号：</label>
+                    <div class="col-sm-10 text-vertical-centered">
+                      <a href="#" id="inputHotelNum">197152</a>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputHotelEnglishName" class="col-sm-2 control-label">酒店英文名：</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="inputHotelEnglishName">
+                    </div>
+                    <label for="inputHotelChineseName" class="col-sm-2 control-label">酒店中文名：</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="inputHotelChineseName">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="inputCity" class="col-sm-2 control-label">城市：</label>
+                    <div class="col-sm-4">
+                      <div id="inputCity" class="form-control wq_clearfix">
+                        <span id="pickUpLocationStore" class="city_en">选择城市</span>
+                        <span id="pickUpLocationCity" class="city_cn"></span>
+                        <span class="city_triangle_divide"></span>
+                      </div>
+                      <!-- <input type="text" class="form-control" id="inputCity"> -->
+                    </div>
+                    <label for="selectCountry" class="col-sm-2 control-label">国家：</label>
+                    <div class="col-sm-4">
+                      <select name="selectCountry" id="selectCountry" class="form-control" >
+                          <option value="">美国</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                        <label for="checkboxStartLevel" class="col-sm-2 control-label">星级（单选）：</label>
+                        <div class="col-sm-10 text-vertical-centered" id="checkboxStartLevel">
+                          <input type="checkbox" id="inputStartLevel5"> 5星
+                          <input type="checkbox" id="inputStartLevel4"> 4星
+                          <input type="checkbox" id="inputStartLevel3"> 3星
+                          <input type="checkbox" id="inputStartLevel2"> 3星或以下
+                        </div>                
+                  </div>
+
+                  <div class="form-group">
+                    <label for="address" class="col-sm-2 control-label">地址：</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="address">
+                    </div>
+                  </div>
+
+                  <div class="form-group form-inline">
+                    <label for="coordinate" class="col-sm-2 control-label">坐标：</label>
+                    <div class="col-sm-10" id="coordinate" class="coordinate">
+                      <!-- <div class="editCoordinatesBox" id="editCoordinatesBox"> -->
+                          X：<input name="x" type="text" id="x" value="120.21152" class="form-control" disabled>
+                          Y：<input name="y" type="text" id="y" value="120.21152" class="form-control" disabled>
+                      <!-- </div>   -->
+                      <button class="btn btn-primary" id="editCoordinates">修改</button>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputFax" class="col-sm-2 control-label">Fax：</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="inputFax">
+                    </div>
+                    <label for="inputEmail" class="col-sm-2 control-label">Email：</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="inputEmail">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputSwitchboard" class="col-sm-2 control-label">电话总机：</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="inputSwitchboard">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputRoomNums" class="col-sm-2 control-label">房间数：</label>
+                    <div class="col-sm-2">
+                      <input type="text" class="form-control" id="inputRoomNums">
+                    </div>
+                    <div class="col-sm-2">
+                      <span class="help-block">正整数格式，如66</span>
+                    </div>
+                    <label for="inputFloorNums" class="col-sm-2 control-label">楼层数：</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="inputFloorNums">
+                    </div>
+                  </div>
+              </div>  <!-- Basic info ends -->
+
+              <!-- supplierInfo starts -->
+              <div class="supplierInfo separator">
+                <h3>供应商信息</h3>
+                <div class="form-group">
+                  <label for="checkboxSupplier" class="col-sm-2 control-label">供应商：</label>
+                  <div class="col-sm-10 text-vertical-centered" id="checkboxSupplier">
+                   <input type="checkbox" id="checkboxSupplierG"> GTA
+                    <input type="checkbox" id="checkboxSupplierH"> HotelBeds
+                    <input type="checkbox" id="checkboxSupplierT"> Tourico
+                  </div>              
+                </div>
+
+                <div class="form-group">
+                  <label for="askingPrice" class="col-sm-2 control-label">起价（USD）：</label>
+                  <div class="col-sm-1 text-vertical-centered" id="askingPrice">$350.52
+                  </div>              
+                  <div class="col-sm-3 control-label">
+                    <span class="help-block">于<span>2014-07-15 15:12:30<span>最后更新
+                    </span>
+                  </div>                
+                </div>
+              </div>  <!-- supplierInfo ends -->
+
+              <div class="form-group">
+                <div class="btn-group col-sm-offset-5 col-sm-1">
+                  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" id="returnProductInfo">  返回
+                  </button>
+                </div>
+                <div class="btn-group  col-sm-1">
+                  <button type="submit" class="btn btn-success dropdown-toggle" data-toggle="dropdown" id="saveProductInfo">  保存
+                  </button>
+                </div>
+              </div> 
+
+            </form>
+          </div>    <!-- /.tab-pane productInfo-->
+
+          <div class="tab-pane" id="infoPacking">      
+            <form action="" class="form-horizontal info-packing-form" role="form" id="infoPackingForm">
+
+              <div class="form-group">
+                  <label for="themeTags" class="col-sm-2 control-label">主题标签：</label>
+                  <div class="col-sm-1" id="themeTags">
+                    <button type="button" class="btn btn-primary">选择</button>                    
+                  </div>
+                  <div class ="col-sm-2 theme-tags-option">
+                      <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                      </button>
+                      家庭式度假公寓
+                  </div>
+                  <div class="col-sm-2 theme-tags-option">
+                      <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                      </button>
+                      公寓式
+                  </div>
+                  <div class="col-sm-2 theme-tags-option">
+                      <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                      </button>
+                      汽车旅馆
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label for="selectRecommendLevel" class="col-sm-2 control-label">推荐级别：</label>
+                <div class="col-sm-1">
+                  <select name="selectCountry" id="selectRecommendLevel" class="form-control" >
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="" selected>5</option>
+                    <option value="">6</option>
+                    <option value="">7</option>
+                    <option value="">8</option>
+                    <option value="">9</option>
+                    <option value="">10</option>
+                  </select>
+                </div>
+                <div class="col-sm-4">
+                  <span class="help-block">注:越大优先级越高，默认是5</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputCheckInTime" class="col-sm-2 control-label">最早入住时间：</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="inputCheckInTime">
+                </div>
+                <div class="col-sm-3">
+                  <span class="help-block">格式，如：15:00</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="datepicker" class="col-sm-2 control-label">开业日期：</label>
+                <div class="col-sm-3">
+                  <input type="text" id="datepicker" class="form-control">
+                </div>  
+              </div>
+
+              <div class="form-group">
+                <label for="language" class="col-sm-2 control-label">服务语言：</label>
+                <div class="col-sm-10 text-vertical-centered" id="language">
+                  <input type="checkbox" id="English"> 英语
+                  <input type="checkbox" id="French"> 法语
+                  <input type="checkbox" id="mandarin"> 普通话
+                  <input type="checkbox" id="Cantonese"> 粤语
+                  <input type="checkbox" id="Spanish"> 西班牙语
+                </div>                
+              </div>
+
+              <div class="form-group">
+                <label for="acceptableCreditCreditCard" class="col-sm-2 control-label">接受信用卡：</label>
+                <div class="col-sm-10 text-vertical-centered" id="acceptableCreditCreditCard">
+                  <input type="checkbox" id="English"> Visa
+                  <input type="checkbox" id="French"> Master
+                  <input type="checkbox" id="mandarin"> AE(运通卡)
+                  <input type="checkbox" id="Cantonese"> JCB
+                  <input type="checkbox" id="Spanish"> DC(大莱卡)
+                </div>                
+              </div>
+
+              <div class="form-group">
+                <label for="hotelIntro" class="col-sm-2 control-label">接受信用卡：</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="3" id="hotelIntro"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="hotelRoomIntro" class="col-sm-2 control-label">客房简介：</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="3" id="hotelRoomIntro"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="cateringIntro" class="col-sm-2 control-label">餐饮简介：</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="3" id="hotelRoomIntro"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="locationIntro" class="col-sm-2 control-label">地理位置简介：</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="3" id="locationIntro"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="chargeNotes" class="col-sm-2 control-label">收费特别说明：</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="3" id="chargeNotes"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="bookingTips" class="col-sm-2 control-label">预订特别提示：</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="3" id="bookingTips"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="addHotelDevices" class="col-sm-2 control-label">酒店设备：</label> 
+
+                <div class="col-sm-1" id="addHotelDevices">
+                    <button type="button" class="btn btn-primary">添加</button>                    
+                </div>
+
+                <div class="col-sm-2 theme-tags-option" id="laundryService">
+                  <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                  </button>
+                  洗衣服务
+                </div>
+
+                <div class="col-sm-2 theme-tags-option" id="golf">
+                  <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                  </button>
+                  高尔夫
+                </div>
+
+                <div class="col-sm-2 theme-tags-option" id="WIFI">
+                  <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                  </button>
+                  WIFI
+                </div>
+                
+              </div>
+
+               <div class="form-group fomr-inline">
+                <div class="btn-group col-sm-offset-6 col-sm-1">
+                  <button type="submit" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" id="saveInfoPacking">  保存
+                  </button>
+                </div>
+              </div> 
+            </form>
+          </div>   <!-- /.tab-pane infoPacking -->
+
+          <div class="tab-pane" id="procuctImage">
+            <form action="" class="form-horizontal product-image-form" role="form" id="procuctImageForm">
+
+              <div class="form-group">
+                <label for="addPicture" class="col-sm-2 control-label">图片上传：</label> 
+                <div class="col-sm-1" id="addPicture">
+                    <button type="button" class="btn btn-primary">添加</button>                    
+                </div>
+                <div class="col-sm-3">
+                  <span class="help-block">
+                    尺寸：500×333 大小：小于等于1M
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group" id="optionsPicture1">
+                <div class="col-sm-2">
+                  <div class="operatePicture">
+                    <div class="radio pull-right">
+                      <label>
+                        <input type="radio" name="pictureOptions" id="optionsRadios1" value="option1" checked>
+                        设为主图
+                      </label>
+                    </div>
+                    <button type="button" class="btn btn-danger dropdown-toggle pull-right delete-picture" data-toggle="dropdown" id="deleteButton1">  删除
+                    </button>                    
+                  </div>
+                </div> 
+                <div class="col-sm-10">
+                  <img alt="" src="../../admin/product/images/u65.png">
+                </div>
+              </div>
+
+              <div class="form-group" id="optionsPicture2">
+                <div class="col-sm-2">
+                  <div class="operatePicture">
+                    <div class="radio pull-right">
+                      <label>
+                        <input type="radio" name="pictureOptions" id="optionsRadios2" value="option2">
+                        设为主图
+                      </label>
+                    </div>
+                    <button type="button" class="btn btn-danger dropdown-toggle pull-right delete-picture" data-toggle="dropdown" id="deleteButton2">  删除
+                    </button>
+                  </div>
+                </div> 
+                <div class="col-sm-10">
+                  <img alt="" src="../../admin/product/images/u65.png">
+                </div>
+              </div>
+
+              <div class="form-group" id="optionsPicture3">
+                <div class="col-sm-2">
+                  <div class="operatePicture">
+                    <div class="radio pull-right">
+                      <label>
+                        <input type="radio" name="pictureOptions" id="optionsRadios3" value="option3">
+                        设为主图
+                      </label>
+                    </div>
+                    <button type="button" class="btn btn-danger dropdown-toggle pull-right delete-picture" data-toggle="dropdown" id="deleteButton3">  删除
+                    </button>
+                  </div>
+                </div> 
+                <div class="col-sm-10">
+                  <img alt="" src="../../admin/product/images/u65.png">
+                </div>
+              </div>
+
+              <div class="form-group fomr-inline">
+                <div class="btn-group col-sm-offset-6 col-sm-1">
+                  <button type="submit" class="btn btn-success dropdown-toggle" data-toggle="dropdown" id="saveProcuctImage">  保存
+                  </button>
+                </div>
+              </div> 
+
+            </form>
+
+            
+          </div>   <!-- /.tab-pane procuctImage -->
+
+          <div class="tab-pane" id="statusConfig">
+            <form action="" class="form-horizontal status-config-form" role="form" id="statusConfigForm">
+              <div class="form-group form-inline">
+                <label for="hotelStatus" class="col-sm-2 control-label">酒店状态：</label> 
+                <div class="col-sm-1" id="hotelStatus">
+                    <button class="btn btn-primary" type="button">添加</button>                    
+                </div>
+                <div class="col-sm-1">
+                  <div class="radio">
+                    <label>
+                    <input type="radio" name="hotelStatus" id="putaway" value="putaway" checked>
+                        上架
+                  </label>
+                </div>
+                </div>
+                <div class="col-sm-1">
+                  <div class="radio">
+                    <label>
+                    <input type="radio" name="hotelStatus" id="soldout" value="soldout">
+                        下架
+                  </label>
+                </div>
+                </div>
+              </div>
+            </form>
+          </div>   <!-- /.tab-pane statusConfig -->
+
+          <div class="tab-pane" id="evaluation">
+            
+          </div>   <!-- /.tab-pane evaluation -->
+
+
+        </div>   <!-- /.tab-content hotel-info-tab-content-->
+    </div>    <!-- /.container -->
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.ui.datepicker.js"></script>
+    <script src="js/hotel-management.js"></script>   
+    <script src="js/citySelect.js"></script> 
+    <script src="js/citySelectData.js"></script>
+    
+  </body>
+</html>
+
